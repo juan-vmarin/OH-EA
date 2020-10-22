@@ -2,7 +2,8 @@ import numpy as np
 from random import uniform
 
 
-class Genome(object):
+class Genome():
+
     def __init__(self, bounds):
         self._solution = np.array([uniform(bounds[0], bounds[1]) for i in bounds], dtype=int)
         self._fitness = self.calculate_fitness()
@@ -19,6 +20,6 @@ class Genome(object):
     @property
     def fitness(self):
         return self._fitness
-    
+
     def calculate_fitness(self):
         return ""
