@@ -21,6 +21,7 @@ class TournamentSelection(SelectionOperator):
 
             # Creo q se puede mejorar esto
             if best.fitness > rand.fitness:
+                # if rand <= p:
                 selected.append(best)
                 selected.append(rand)
                 best, rand = rand, best
