@@ -1,6 +1,6 @@
 from group10.operator import SelectionOperator
 from group10.population import Population
-from group10.genome import Genome
+from group10.component import Genome
 import numpy as np
 
 
