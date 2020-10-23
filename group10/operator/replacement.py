@@ -1,5 +1,5 @@
 from group10.operator import ReplacementOperator
-from group10.population import Population
+from group10.component import Population
 import numpy as np
 
 #steady-state
