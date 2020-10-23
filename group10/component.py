@@ -16,11 +16,6 @@ class Genome(object):
     def solution(self):
         return self._solution
 
-    # @solution.setter
-    # def solution(self, solution):
-    #     self._solution = np.asarray(solution)
-    #     self._fitness = self.calc_fitness()
-
     @property
     def fitness(self):
         return self._fitness
@@ -30,7 +25,7 @@ class Genome(object):
         return self._bounds
 
     def calc_fitness(self):
-        return -self._min_function(self._solution)
+        return -self._min_function(self._solution.tolist())
 
     def __setitem__(self, index, value):
         self._solution[index] = value
@@ -48,7 +43,7 @@ class Genome(object):
         return next(self._solution)
 
     def __copy__(self):
-        return Genome(self._min_function, self._bounds, np.copy(self._solution))
+        return Genome(self._min_function, self._bounds, solution=np.copy(self._solution))
 
     def __eq__(self, other):
         return self._solution == other.solution
@@ -59,11 +54,27 @@ class Genome(object):
 
 class Population(object):
     def __init__(self, min_function, bounds, p_size):
-        self._genomes = [Genome(min_function, bounds) for i in range(p_size)]
+        self._min_function = min_function
+        self._bounds = bounds
         self._size = p_size
+        self._genomes = []
+
+    def random_genomes(self):
+        self._genomes = [Genome(self._min_function, self._bounds) for i in range(self._size)]
 
     def sort(self, descend=False):
         self._genomes.sort(reverse=descend, key=lambda genome: genome.fitness)
+
+    def append(self, genome):
+        self._genomes.append(genome)
+
+    @property
+    def worst_index(self):
+        return min(self._genomes, key=lambda genome: genome.fitness)
+
+    @property
+    def best_index(self):
+        return max(self._genomes, key=lambda genome: genome.fitness)
 
     def __setitem__(self, index, genome):
         self._genomes[index] = genome
@@ -72,12 +83,6 @@ class Population(object):
         # if index >= self._size:
         #     raise ValueError("El indice se encuentra fuera del rango")
         return self._genomes[index]
-
-    # def add(self, genome):
-    #     if len(self._genomes) < self._size:
-    #         self._genomes.append(genome)
-    #     else:
-    #         raise ValueError("No se puede añadir mas individuos")
 
     def __delitem__(self, index):
         del self._genomes[index]
