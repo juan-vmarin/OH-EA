@@ -3,7 +3,7 @@ import random
 
 
 class TournamentSelection(SelectionOperator):
-    def apply(self, population, k=10):
+    def apply(self, population, k):
         # Creation of the lists
         best = random.choice(population)
         selected = {best}
