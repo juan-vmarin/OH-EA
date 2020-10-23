@@ -4,10 +4,7 @@ from copy import copy
 
 
 class UniformCrossover(CrossoverOperator):
-    def apply(self, *genome_pairs, prob=0.5):
-        if len(genome_pairs) > 2:
-            raise ValueError("Hay mas de 2 individuos")
-        genome_a, genome_b = genome_pairs[0], genome_pairs[1]
+    def apply(self, genome_a, genome_b, prob=0.5):
         genome_a_copy = copy(genome_a)
         genome_b_copy = copy(genome_b)
         for i in range(len(genome_a)):

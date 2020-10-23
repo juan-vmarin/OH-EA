@@ -3,13 +3,13 @@ from abc import ABC, abstractmethod
 
 class CrossoverOperator(ABC):
     @abstractmethod
-    def apply(self, genome_pairs):
+    def apply(self, *genomes):
         pass
 
 
 class MutationOperator(ABC):
     @abstractmethod
-    def apply(self, genomes):
+    def apply(self, *genomes):
         pass
 
 
@@ -21,5 +21,5 @@ class SelectionOperator(ABC):
 
 class ReplacementOperator(ABC):
     @abstractmethod
-    def apply(self, population_a, population_b):
+    def apply(self, *population):
         pass

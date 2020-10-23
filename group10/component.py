@@ -46,7 +46,7 @@ class Genome(object):
         return Genome(self._min_function, self._bounds, solution=np.copy(self._solution))
 
     def __eq__(self, other):
-        return self._solution == other.solution
+        return sum(self._solution == other.solution) == self._solution.shape[0]
 
     def __str__(self):
         return str(self._solution)
@@ -80,8 +80,6 @@ class Population(object):
         self._genomes[index] = genome
 
     def __getitem__(self, index):
-        # if index >= self._size:
-        #     raise ValueError("El indice se encuentra fuera del rango")
         return self._genomes[index]
 
     def __delitem__(self, index):

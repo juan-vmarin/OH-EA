@@ -28,7 +28,7 @@ class EA(object):
             while genome_a is not genome_b:
                 genome_b = self._selection.apply(self._population, k)
 
-            children = self._crossover.apply((genome_a, genome_b))
+            children = self._crossover.apply(genome_a, genome_b)
             child = random.choice(children)
             genome = self._mutation.apply(child)
             offspring_population = Population(self._min_function, self._bounds, 1)
