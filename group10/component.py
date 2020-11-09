@@ -13,7 +13,7 @@ class Genome(object):
             bounds (np.array): limits to get solution
             solution ([float,] or np.array, optional): solution to initialize. Defaults to None.
         """
-        if solution:
+        if solution is not None:
             self._solution = solution
         else:
             self._solution = np.array([uniform(bounds[0], bounds[1]) for i in bounds])
