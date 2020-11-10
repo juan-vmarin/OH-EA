@@ -4,10 +4,19 @@ from copy import copy
 
 
 class UniformCrossover(CrossoverOperator):
-    def apply(self, *genome_pairs, prob=0.5):
-        if len(genome_pairs) > 2:
-            raise ValueError("Hay mas de 2 individuos")
-        genome_a, genome_b = genome_pairs[0], genome_pairs[1]
+    """A uniform crossover operator
+    """
+    def apply(self, genome_a, genome_b, prob=0.5):
+        """it represents an operation to cross 2 genomes in a uniform way
+
+        Args:
+            genome_a (component.Genome): genome father a
+            genome_b (component.Genome): genome father a
+            prob (float, optional): probability to change gen when its different gen. Defaults to 0.5.
+
+        Returns:
+            Genome: genome as result to crossover genome father gen
+        """
         genome_a_copy = copy(genome_a)
         genome_b_copy = copy(genome_b)
         for i in range(len(genome_a)):
