@@ -1,24 +1,23 @@
 import numpy as np
 from random import uniform
+import copy
 
 
 class Genome(object):
     """Class to represent a genome
     """
-    def __init__(self, min_function, bounds, solution=None):
+
+    def __init__(self, solution, min_function, bounds):
         """initialize the bounds, function to minimize and solution if exists
 
         Args:
+            solution ([float,] or np.array, optional): solution to initialize. Defaults to None.
             min_function: a function to minimize
             bounds (np.array): limits to get solution
-            solution ([float,] or np.array, optional): solution to initialize. Defaults to None.
         """
-        if solution is not None:
-            self._solution = solution
-        else:
-            self._solution = np.array([uniform(bounds[0], bounds[1]) for i in bounds])
-        self._bounds = bounds
+        self._solution = solution
         self._min_function = min_function
+        self._bounds = bounds
         self._fitness = self._calc_fitness()
 
     @property
@@ -63,6 +62,10 @@ class Genome(object):
             index (int): index
             value (float): gen
         """
+        if value > self._bounds[index][1]:
+            value = self._bounds[index][1]
+        elif value < self._bounds[index][0]:
+            value = self._bounds[index][0]
         self._solution[index] = value
 
     def __getitem__(self, index):
@@ -86,10 +89,10 @@ class Genome(object):
         return next(self._solution)
 
     def __copy__(self):
-        return Genome(self._min_function, self._bounds, solution=np.copy(self._solution))
+        return Genome(np.copy(self._solution), self._min_function, self._bounds)
 
     def __eq__(self, other):
-        return sum(self._solution == other.solution) == self._solution.shape[0]
+        return (self._solution == other.solution).all()
 
     def __str__(self):
         return str(self._solution)
@@ -104,7 +107,7 @@ class Population(object):
 
         Args:
             min_function: a function to minimize
-            bounds (np.array): limits to get solution
+            bounds: limits to get solution
             p_size (int): population size
         """
         self._min_function = min_function
@@ -115,7 +118,7 @@ class Population(object):
     def random_genomes(self):
         """generate a random genomes between bounds
         """
-        self._genomes = [Genome(self._min_function, self._bounds) for i in range(self._size)]
+        self._genomes = [Genome(np.array([uniform(bound[0], bound[1]) for bound in self._bounds]), self._min_function, self._bounds) for _ in range(self._size)]
 
     def sort(self, descend=False):
         """sort the genomes depending on fitness
@@ -140,7 +143,7 @@ class Population(object):
         Returns:
             int:
         """
-        return min(self._genomes, key=lambda genome: genome.fitness)
+        return self._genomes.index(min(self._genomes, key=lambda genome: genome.fitness))
 
     @property
     def best_index(self):
@@ -149,7 +152,7 @@ class Population(object):
         Returns:
             int:
         """
-        return max(self._genomes, key=lambda genome: genome.fitness)
+        return self._genomes.index(max(self._genomes, key=lambda genome: genome.fitness))
 
     def __setitem__(self, index, genome):
         """set a genome
@@ -189,5 +192,5 @@ class Population(object):
         return self._size
 
     def __str__(self):
-        return str(self._genomes)
+        return '[' + '\n'.join([str(i) for i in self._genomes]) + ']'
 
