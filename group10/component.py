@@ -31,10 +31,10 @@ class Genome(object):
 
     @property
     def fitness(self):
-        """fitness value
+        """fitness value of how good is the genome as solution of the problem
 
         Returns:
-            int:
+            int: quantification of how good it is
         """
         return self._fitness
 
@@ -43,7 +43,7 @@ class Genome(object):
         """bounds
 
         Returns:
-            [(float, float),]:
+            [(float, float),]: bounds
         """
         return self._bounds
 
@@ -118,7 +118,8 @@ class Population(object):
     def random_genomes(self):
         """generate a random genomes between bounds
         """
-        self._genomes = [Genome(np.array([uniform(bound[0], bound[1]) for bound in self._bounds]), self._min_function, self._bounds) for _ in range(self._size)]
+        self._genomes = [Genome(np.array([uniform(bound[0], bound[1]) for bound in self._bounds]), self._min_function,
+                                self._bounds) for _ in range(self._size)]
 
     def sort(self, descend=False):
         """sort the genomes depending on fitness
@@ -129,7 +130,7 @@ class Population(object):
         self._genomes.sort(reverse=descend, key=lambda genome: genome.fitness)
 
     def append(self, genome):
-        """add new genome to final
+        """add new genome at the end
 
         Args:
             genome (Genome): new genome
@@ -141,7 +142,7 @@ class Population(object):
         """get a worst genome index
 
         Returns:
-            int:
+            int: index of the worst genome
         """
         return self._genomes.index(min(self._genomes, key=lambda genome: genome.fitness))
 
@@ -150,7 +151,7 @@ class Population(object):
         """get the best genome index
 
         Returns:
-            int:
+            int: index of best genome
         """
         return self._genomes.index(max(self._genomes, key=lambda genome: genome.fitness))
 
@@ -167,10 +168,10 @@ class Population(object):
         """get a genome
 
         Args:
-            index (int):
+            index (int): position
 
         Returns:
-            Genome:
+            Genome: a genome of the position past as an index
         """
         return self._genomes[index]
 
@@ -178,7 +179,7 @@ class Population(object):
         """remove a genome
 
         Args:
-            index (int): index
+            index (int): index of the gen deleted
         """
         del self._genomes[index]
 
@@ -193,4 +194,3 @@ class Population(object):
 
     def __str__(self):
         return '[' + '\n'.join([str(i) for i in self._genomes]) + ']'
-
