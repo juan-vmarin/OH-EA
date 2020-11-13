@@ -37,20 +37,20 @@ class EA(object):
         Returns:
             (solution, fitness): returns the best solution and its fitness value
         """
-        p_size = len(self._population)
-        k = random.randint(p_size//2, p_size)
         for i in range(iteration):
-            genome_a = self._selection.apply(self._population, k)
-            genome_b = self._selection.apply(self._population, k)
-            while genome_a is not genome_b:
-                genome_b = self._selection.apply(self._population, k)
+            genome_a = self._selection.apply(self._population)
+            genome_b = self._selection.apply(self._population)
+            # print(genome_a, genome_b)
+            while genome_a is genome_b:
+                # print("bucle")
+                genome_b = self._selection.apply(self._population)
 
             children = self._crossover.apply(genome_a, genome_b)
             child = random.choice(children)
             genome = self._mutation.apply(child)
             offspring_population = Population(self._min_function, self._bounds, 1)
             offspring_population.append(genome)
-            self._population = self._replacement.apply(self._population, offspring_population)
+            self._replacement.apply(self._population, offspring_population)
 
-        best_genome = self._population[self._population.best_index]
-        return best_genome.solution, best_genome.fitness
+    def best(self):
+        return self._population[self._population.best_index]

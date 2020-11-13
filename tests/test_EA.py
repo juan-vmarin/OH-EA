@@ -1,19 +1,13 @@
-from group10.operator.selection import TournamentSelection
-from group10.component import *
-import random
+from group10.EA import EA
 
 
-def min_func(solution):
-    return solution[0] ** 2 + solution[1] ** 2
+def f(sol):
+    return sum(sol)
 
 
-bounds = [(-2, 2)] * 10
-p = Population(min_func, bounds, 10)
-p.random_genomes()
-m = TournamentSelection()
-print(p)
-lt = m.apply(p, 1)
-print(lt)
-for i in lt:
-    print(i)
-
+print("Test EA")
+bounds = [(-10, 10)] * 10
+myEA = EA(f, bounds, 50)
+myEA.run(100000)
+bestGenome = myEA.best()
+print(bestGenome, "fitness:", bestGenome.fitness)

@@ -15,7 +15,7 @@ class MutationOperator(ABC):
 
 class SelectionOperator(ABC):
     @abstractmethod
-    def apply(self, population, k):
+    def apply(self, population):
         pass
 
 

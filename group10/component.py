@@ -1,6 +1,5 @@
 import numpy as np
 from random import uniform
-import copy
 
 
 class Genome(object):
@@ -67,6 +66,7 @@ class Genome(object):
         elif value < self._bounds[index][0]:
             value = self._bounds[index][0]
         self._solution[index] = value
+        self._fitness = self._calc_fitness()
 
     def __getitem__(self, index):
         """get a gen value
@@ -94,8 +94,26 @@ class Genome(object):
     def __eq__(self, other):
         return (self._solution == other.solution).all()
 
+    def __ne__(self, other):
+        return not (self._solution == other.solution).all()
+
     def __str__(self):
         return str(self._solution)
+
+    def __cmp__(self, other):
+        return self._fitness - other.fitness
+
+    def __gt__(self, other):
+        return self.__cmp__(other) > 0
+
+    def __lt__(self, other):
+        return self.__cmp__(other) < 0
+
+    def __ge__(self, other):
+        return self.__cmp__(other) >= 0
+
+    def __le__(self, other):
+        return self.__cmp__(other) <= 0
 
 
 class Population(object):
