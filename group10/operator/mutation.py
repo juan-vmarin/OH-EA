@@ -7,13 +7,13 @@ class UniformMutation(MutationOperator):
     """A uniform Mutation operator
     """
     def apply(self, genome):
-        """it represents an operation to mutate a genome in a uniform way
+        """It represents an operation to mutate a genome in a uniform way
 
         Args:
-            genome (component.Genome): genome to mutate
+            genome (component.Genome): Genome to mutate
 
         Returns:
-            Genome: new genome as result to apply mutation
+            Genome: New genome as result to apply mutation
         """
         index = random.randrange(len(genome))
         genome_copy = copy(genome)

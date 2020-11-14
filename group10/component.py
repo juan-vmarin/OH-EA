@@ -7,12 +7,12 @@ class Genome(object):
     """
 
     def __init__(self, solution, min_function, bounds):
-        """initialize the bounds, function to minimize and solution if exists
+        """Initialize the bounds, function to minimize and solution if exists
 
         Args:
-            solution ([float,] or np.array, optional): solution to initialize. Defaults to None.
-            min_function: a function to minimize
-            bounds (np.array): limits to get solution
+            solution ([float,] or np.array, optional): Solution to initialize. Defaults to None.
+            min_function: A function to minimize
+            bounds (np.array): Limits to get solution
         """
         self._solution = solution
         self._min_function = min_function
@@ -30,27 +30,27 @@ class Genome(object):
 
     @property
     def fitness(self):
-        """fitness value of how good is the genome as solution of the problem
+        """Get the fitness value of how good is the genome as solution of the problem
 
         Returns:
-            int: quantification of how good it is
+            int: Quantification of how good it is
         """
         return self._fitness
 
     @property
     def bounds(self):
-        """bounds
+        """Get the limits of the solution
 
         Returns:
-            [(float, float),]: bounds
+            [(float, float),]: Bounds of solution
         """
         return self._bounds
 
     def _calc_fitness(self):
-        """calculate the fitness
+        """Calculate the fitness
 
         Returns:
-            float:
+            float: fitness
         """
         return -self._min_function(self._solution.tolist())
 
@@ -58,8 +58,8 @@ class Genome(object):
         """set a gen value
 
         Args:
-            index (int): index
-            value (float): gen
+            index (int): Index
+            value (float): Gen
         """
         if value > self._bounds[index][1]:
             value = self._bounds[index][1]
@@ -69,13 +69,13 @@ class Genome(object):
         self._fitness = self._calc_fitness()
 
     def __getitem__(self, index):
-        """get a gen value
+        """Get a gen value
 
         Args:
-            index (int): index
+            index (int): Index
 
         Returns:
-            [float]: gen
+            [float]: Gen
         """
         return self._solution[index]
 
@@ -117,16 +117,16 @@ class Genome(object):
 
 
 class Population(object):
-    """class to represent a population of genome
+    """Class to represent a population of genome
         """
 
     def __init__(self, min_function, bounds, p_size):
-        """initialize the bounds, function to minimize and population size
+        """Initialize the bounds, function to minimize and population size
 
         Args:
-            min_function: a function to minimize
-            bounds: limits to get solution
-            p_size (int): population size
+            min_function: A function to minimize
+            bounds: Limits to get solution
+            p_size (int): Population size
         """
         self._min_function = min_function
         self._bounds = bounds
@@ -134,70 +134,70 @@ class Population(object):
         self._genomes = []
 
     def random_genomes(self):
-        """generate a random genomes between bounds
+        """Generate a random genomes between bounds
         """
         self._genomes = [Genome(np.array([uniform(bound[0], bound[1]) for bound in self._bounds]), self._min_function,
                                 self._bounds) for _ in range(self._size)]
 
     def sort(self, descend=False):
-        """sort the genomes depending on fitness
+        """Sort the genomes depending on fitness
 
         Args:
-            descend (bool, optional): descend or ascend sort
+            descend (bool, optional): Descend or ascend sort
         """
         self._genomes.sort(reverse=descend, key=lambda genome: genome.fitness)
 
     def append(self, genome):
-        """add new genome at the end
+        """Add new genome at the end
 
         Args:
-            genome (Genome): new genome
+            genome (Genome): New genome
         """
         self._genomes.append(genome)
 
     @property
     def worst_index(self):
-        """get a worst genome index
+        """Get a worst genome index
 
         Returns:
-            int: index of the worst genome
+            int: Index of the worst genome
         """
         return self._genomes.index(min(self._genomes, key=lambda genome: genome.fitness))
 
     @property
     def best_index(self):
-        """get the best genome index
+        """Get the best genome index
 
         Returns:
-            int: index of best genome
+            Int: index of best genome
         """
         return self._genomes.index(max(self._genomes, key=lambda genome: genome.fitness))
 
     def __setitem__(self, index, genome):
-        """set a genome
+        """Set a genome
 
         Args:
-            index (int): index
-            genome (Genome): new Genome
+            index (int): Index
+            genome (Genome): New Genome
         """
         self._genomes[index] = genome
 
     def __getitem__(self, index):
-        """get a genome
+        """Get a genome
 
         Args:
-            index (int): position
+            index (int): Position
 
         Returns:
-            Genome: a genome of the position past as an index
+            Genome: A genome of the position past as an index
         """
         return self._genomes[index]
 
     def __delitem__(self, index):
-        """remove a genome
+        """Remove a genome
 
         Args:
-            index (int): index of the gen deleted
+            index (int): Index of the gen deleted
         """
         del self._genomes[index]
 

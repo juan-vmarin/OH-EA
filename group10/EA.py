@@ -12,7 +12,7 @@ class EA(object):
     """
 
     def __init__(self, min_function, bounds, p_size):
-        """initialize the population and genomes to random value between the bounds, and instantiate operators
+        """Initialize the population and genomes to random value between the bounds, and instantiate operators
 
         Args:
             min_function (): function to minimize
@@ -29,13 +29,10 @@ class EA(object):
         self._population.random_genomes()
 
     def run(self, iteration):
-        """resolve the min_function with iteration times
+        """Resolve the min_function with iteration times
 
         Args:
-            iteration (int): number of generation
-
-        Returns:
-            (solution, fitness): returns the best solution and its fitness value
+            iteration (int): Number of generation
         """
         for i in range(iteration):
             genome_a = self._selection.apply(self._population)
@@ -53,4 +50,9 @@ class EA(object):
             self._replacement.apply(self._population, offspring_population)
 
     def best(self):
+        """Get the best genome of the population
+
+            Returns:
+                (component.Genome): the best genome
+        """
         return self._population[self._population.best_index]

@@ -1,13 +1,11 @@
 from group10.EA import EA
+from benchmarks.functions import griewank
 
 
-def f(sol):
-    return sum(sol)
-
-
-print("Test EA")
-bounds = [(-10, 10)] * 10
-myEA = EA(f, bounds, 50)
+bounds = [(-100, 100)] * 10
+myEA = EA(griewank, bounds, 50)
 myEA.run(10000)
 bestGenome = myEA.best()
 print(bestGenome, "fitness:", bestGenome.fitness)
+
+
