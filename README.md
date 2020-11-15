@@ -80,7 +80,7 @@
     
     - su minima global esta: $f(\textbf{x}^{\ast})=0 at$ \textbf{x}^{\ast} = (0, 0)$
     
-     ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/griewankfcn.png）
+     ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/griewankfcn.png)
     
     - bounds: $ x_i \in [-600, 600]$ for $i = 1..n$
     
