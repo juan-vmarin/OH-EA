@@ -12,7 +12,7 @@
     - su minima global esta:
     $\textbf{x}^{\ast} = (0, …, 0)$
    
-    - ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/spherefcn.png)
+     ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/spherefcn.png)
     
     - la solucion que tenemos :
     ```
@@ -29,6 +29,8 @@
     
     - su minima global esta: $f(\textbf{x}^{\ast})=0$ donde $\textbf{x}^{\ast} = (0, …, 0)$
     
+     ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/ackleyfcn.png)
+    
     - la solucion que tenemos:
     ```
    [-0.03493712  0.59355218 -0.07135287 -0.16715768  0.00476106 -0.11257682
@@ -40,6 +42,8 @@
     - $f(x, y)=\sum_{i=1}^{n}[b (x_{i+1} - x_i^2)^ 2 + (a - x_i)^2]$
     
     - su minima global esta: $f(\textbf{x}^{\ast})=0$ donde $\textbf{x}^{\ast} = (1, …, 1)$
+    
+     ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/rosenbrockfcn.png)
     
     - bounds: $x_i \in [-5, 10]$ for $i = 1..n$
     
@@ -58,6 +62,8 @@
     
     - su minima global esta: $f(\textbf{x}^{\ast})=0 at$ \textbf{x}^{\ast} = (0, 0)$
     
+    ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/rastriginfcn.png)
+    
     - bounds: $x_i \in [-5.12, 5.12]$ for $i = 1..n$
     
     - la solucion que tenemos:
@@ -73,6 +79,8 @@
     - $f(x, y)=10n + \sum_{i=1}^{n}(x_i^2 - 10cos(2\pi x_i))$
     
     - su minima global esta: $f(\textbf{x}^{\ast})=0 at$ \textbf{x}^{\ast} = (0, 0)$
+    
+     ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/griewankfcn.png）
     
     - bounds: $ x_i \in [-600, 600]$ for $i = 1..n$
     
