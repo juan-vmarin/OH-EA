@@ -69,7 +69,7 @@
 
    ```
    
-   * **Function Griewank**
+ * **Function Griewank**
     - $f(x, y)=10n + \sum_{i=1}^{n}(x_i^2 - 10cos(2\pi x_i))$
     
     - su minima global esta: $f(\textbf{x}^{\ast})=0 at$ \textbf{x}^{\ast} = (0, 0)$
