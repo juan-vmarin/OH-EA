@@ -6,6 +6,10 @@ from copy import copy
 class UniformMutation(MutationOperator):
     """A uniform Mutation operator
     """
+
+    def __init__(self, prob_mut):
+        self.prob_mut = prob_mut
+
     def apply(self, genome):
         """It represents an operation to mutate a genome in a uniform way
 
@@ -15,8 +19,10 @@ class UniformMutation(MutationOperator):
         Returns:
             Genome: New genome as result to apply mutation
         """
-        index = random.randrange(len(genome))
         genome_copy = copy(genome)
-        bound = genome_copy.bounds[index]
-        genome_copy[index] = random.uniform(bound[0], bound[1])
+        if random.random() < self.prob_mut:
+            index = random.randrange(len(genome))
+            bound = genome_copy.bounds[index]
+            genome_copy[index] = random.uniform(bound[0], bound[1])
+
         return genome_copy

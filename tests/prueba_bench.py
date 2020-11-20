@@ -8,12 +8,14 @@ bestGenome = sphereEA.best()
 print("function sphere")
 print(bestGenome, "\nfitness:", bestGenome.fitness)
 
+
 ackleybounds = [(-32, 32)] * 10
 ackleyEA = EA(ackley, ackleybounds, 50)
 ackleyEA.run(10000)
 bestGenome = ackleyEA.best()
 print("function ackley")
 print(bestGenome, "\nfitness:", bestGenome.fitness)
+
 
 rosenbrockbounds = [(-5, 10)] * 10
 rosenbrockEA = EA(rosenbrock, rosenbrockbounds, 50)

@@ -10,4 +10,4 @@ class SteadyStateReplacement(ReplacementOperator):
             population_offspring (component.Population): The population from the current population will change
         """
         population_current[population_current.worst_index] = population_offspring[0]
-        # return population_current
+        return population_current

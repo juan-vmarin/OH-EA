@@ -120,7 +120,7 @@ class Population(object):
     """Class to represent a population of genome
         """
 
-    def __init__(self, min_function, bounds, p_size):
+    def __init__(self, min_function, bounds, p_size, random=False):
         """Initialize the bounds, function to minimize and population size
 
         Args:
@@ -131,9 +131,12 @@ class Population(object):
         self._min_function = min_function
         self._bounds = bounds
         self._size = p_size
-        self._genomes = []
+        if random:
+            self._random_genomes()
+        else:
+            self._genomes = []
 
-    def random_genomes(self):
+    def _random_genomes(self):
         """Generate a random genomes between bounds
         """
         self._genomes = [Genome(np.array([uniform(bound[0], bound[1]) for bound in self._bounds]), self._min_function,
