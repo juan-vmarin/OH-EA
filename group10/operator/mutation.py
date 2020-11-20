@@ -4,10 +4,15 @@ from copy import copy
 
 
 class UniformMutation(MutationOperator):
-    """A uniform Mutation operator
+    """A uniform mutation operator
     """
 
     def __init__(self, prob_mut):
+        """Uniform mutation constructor
+
+        Args:
+            prob_mut (float): Probability to mutate
+        """
         self.prob_mut = prob_mut
 
     def apply(self, genome):

@@ -10,9 +10,9 @@ class Genome(object):
         """Initialize the bounds, function to minimize and solution if exists
 
         Args:
-            solution ([float,] or np.array, optional): Solution to initialize. Defaults to None.
+            solution ([float,] or numpy.array): Solution to initialize
             min_function: A function to minimize
-            bounds (np.array): Limits to get solution
+            bounds: Limits to get solution
         """
         self._solution = solution
         self._min_function = min_function
@@ -24,7 +24,7 @@ class Genome(object):
         """solution value
 
         Returns:
-            np.Array:
+            numpy.array: solution
         """
         return self._solution
 
@@ -33,7 +33,7 @@ class Genome(object):
         """Get the fitness value of how good is the genome as solution of the problem
 
         Returns:
-            int: Quantification of how good it is
+            int: Quantification of how good the solution is
         """
         return self._fitness
 
@@ -55,7 +55,7 @@ class Genome(object):
         return -self._min_function(self._solution.tolist())
 
     def __setitem__(self, index, value):
-        """set a gen value
+        """Set a gen value
 
         Args:
             index (int): Index
@@ -80,6 +80,11 @@ class Genome(object):
         return self._solution[index]
 
     def __len__(self):
+        """Length of the solution
+
+        Returns:
+            [int]: length
+        """
         return self._solution.shape[0]
 
     def __iter__(self):
@@ -118,15 +123,16 @@ class Genome(object):
 
 class Population(object):
     """Class to represent a population of genome
-        """
+    """
 
     def __init__(self, min_function, bounds, p_size, random=False):
-        """Initialize the bounds, function to minimize and population size
+        """Initialize the bounds, function to minimize, population size
 
         Args:
             min_function: A function to minimize
             bounds: Limits to get solution
             p_size (int): Population size
+            random (bool): True to generate random genomes. Defaults False.
         """
         self._min_function = min_function
         self._bounds = bounds
@@ -151,10 +157,10 @@ class Population(object):
         self._genomes.sort(reverse=descend, key=lambda genome: genome.fitness)
 
     def append(self, genome):
-        """Add new genome at the end
+        """Add new genome at the end of the list
 
         Args:
-            genome (Genome): New genome
+            genome (component.Genome): New genome
         """
         self._genomes.append(genome)
 
@@ -172,7 +178,7 @@ class Population(object):
         """Get the best genome index
 
         Returns:
-            Int: index of best genome
+            Int: Index of best genome
         """
         return self._genomes.index(max(self._genomes, key=lambda genome: genome.fitness))
 
@@ -181,7 +187,7 @@ class Population(object):
 
         Args:
             index (int): Index
-            genome (Genome): New Genome
+            genome (component.Genome): New Genome
         """
         self._genomes[index] = genome
 

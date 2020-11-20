@@ -8,10 +8,22 @@ class UniformCrossover(CrossoverOperator):
     """
 
     def __init__(self, prob_cross):
+        """Uniform crossover constructor
+
+        Args:
+            prob_cross (float): Probability to cross 2 genomes
+
+        """
         self.prob_cross = prob_cross
 
     @staticmethod
     def _cross_genome(genome_to_cross, genome):
+        """Auxiliary static method to cross a genome
+
+        Args:
+            genome_to_cross (component.Genome): Genome to be crossed
+            genome (component.Genome): Genome to cross
+        """
         for i in range(len(genome_to_cross)):
             if genome_to_cross[i] != genome[i]:
                 if random() > 0.5:

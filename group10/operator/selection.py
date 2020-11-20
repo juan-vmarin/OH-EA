@@ -3,12 +3,20 @@ import random
 
 
 class TournamentSelection(SelectionOperator):
+    """A tournament selection operator
+    """
 
     def __init__(self, k):
+        """Tournament selection constructor
+
+        Args:
+            k (int): number of genomes to be randomly selected
+
+        """
         self.k = k
 
     def apply(self, population):
-        """It represents an operation to select a genome within the population
+        """It represents an operation to select a genome within the population in a tournament selection way
 
         Args:
             population (component.Population): A population of genomes

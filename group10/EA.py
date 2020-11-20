@@ -16,7 +16,7 @@ class EA(object):
 
         Args:
             min_function (): function to minimize
-            bounds ([(float, float),] or numpy array): limits to get solution
+            bounds ([(float, float),] or numpy.array): limits to get solution
             p_size (int): size of the population
         """
         self._crossover = UniformCrossover(0.9)
