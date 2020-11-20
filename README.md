@@ -133,7 +133,7 @@
     
     - su minima global esta: $f(\textbf{x}^{\ast})=0$ donde $\textbf{x}^{\ast} = (420.9687, …, 420.9687)$
     
-    ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/schwefel222fcn.png)
+    ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/schwefelfcn.png)
     
     - bounds: $ x_i \in [-500, 500]$ for $i = 1..n$
     
@@ -163,7 +163,7 @@
    asdasdasdasdasd
 
    ```
-* **Function Schwefel 1.2**
+* **Function Schaffer**
     - $f(x, y)=0.5 + \frac{sin^2(x^2+y^2)^2-0.5}{(1+0.001(x^2+y^2))^2}$
     
     - su minima global esta: $f(\textbf{x}^{\ast})=0$ donde $\textbf{x}^{\ast} = (0, 0)$
@@ -179,20 +179,3 @@
 
    ```
 
-
-
- * **Function Schwefel 1.2**
-    - $f(x, y)=0.5 + \frac{sin^2(x^2+y^2)^2-0.5}{(1+0.001(x^2+y^2))^2}$
-    
-    - su minima global esta: $f(\textbf{x}^{\ast})=0$ donde $\textbf{x}^{\ast} = (0, 0)$
-    
-    ![avatar](http://benchmarkfcns.xyz/benchmarkfcns/plots/schaffern1fcn.png)
-    
-    - bounds: $ x_i \in [-100, 100]$ for $i=1, 2$
-    
-    - la solucion que tenemos:
-    
-   ```
-   asdasdasdasdasd
-
-   ```
