@@ -19,14 +19,13 @@ class EA(object):
             bounds ([(float, float),] or numpy array): limits to get solution
             p_size (int): size of the population
         """
-        self._crossover = UniformCrossover()
-        self._mutation = UniformMutation()
-        self._selection = TournamentSelection()
+        self._crossover = UniformCrossover(0.9)
+        self._mutation = UniformMutation(0.2)
+        self._selection = TournamentSelection(4)
         self._replacement = SteadyStateReplacement()
         self._min_function = min_function
         self._bounds = np.asarray(bounds)
-        self._population = Population(min_function, self._bounds, p_size)
-        self._population.random_genomes()
+        self._population = Population(min_function, self._bounds, p_size, random=True)
 
     def run(self, iteration):
         """Resolve the min_function with iteration times
@@ -37,17 +36,13 @@ class EA(object):
         for i in range(iteration):
             genome_a = self._selection.apply(self._population)
             genome_b = self._selection.apply(self._population)
-            # print(genome_a, genome_b)
-            while genome_a is genome_b:
-                # print("bucle")
-                genome_b = self._selection.apply(self._population)
 
             children = self._crossover.apply(genome_a, genome_b)
             child = random.choice(children)
             genome = self._mutation.apply(child)
             offspring_population = Population(self._min_function, self._bounds, 1)
             offspring_population.append(genome)
-            self._replacement.apply(self._population, offspring_population)
+            self._population = self._replacement.apply(self._population, offspring_population)
 
     def best(self):
         """Get the best genome of the population
