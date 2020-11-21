@@ -7,7 +7,7 @@ setuptools.setup(
     name="group10",
     version="1.0.0",
     author="Group10",
-    author_email="author@example.com",
+    author_email="z.ye@alumnos.upm.es",
     description="Heuristic optimization 1st practical work, by Group 10.",
     long_description=long_description,
     long_description_content_type="text/markdown",
