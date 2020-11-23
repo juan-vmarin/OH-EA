@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>group10.operator package &#8212; Genetic Algorithm 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="group10-operator-package">
+<h1>group10.operator package<a class="headerlink" href="#group10-operator-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-group10.operator.crossover">
+<span id="group10-operator-crossover-module"></span><h2>group10.operator.crossover module<a class="headerlink" href="#module-group10.operator.crossover" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="group10.operator.crossover.UniformCrossover">
+<em class="property">class </em><code class="sig-prename descclassname">group10.operator.crossover.</code><code class="sig-name descname">UniformCrossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob_cross</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.crossover.UniformCrossover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#group10.operator.CrossoverOperator" title="group10.operator.CrossoverOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">group10.operator.CrossoverOperator</span></code></a></p>
+<p>A uniform crossover operator</p>
+<dl class="py method">
+<dt id="group10.operator.crossover.UniformCrossover.apply">
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">genome_a</span></em>, <em class="sig-param"><span class="n">genome_b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.crossover.UniformCrossover.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>It represents an operation to cross 2 genomes in a uniform way</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>genome_a (component.Genome): Genome father a
+genome_b (component.Genome): Genome father a</p>
+</dd>
+<dt>Returns:</dt><dd><p>Genome: Genome as result to crossover genome father gen</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="group10.operator.crossover.random">
+<code class="sig-prename descclassname">group10.operator.crossover.</code><code class="sig-name descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; x in the interval [0, 1).<a class="headerlink" href="#group10.operator.crossover.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-group10.operator.mutation">
+<span id="group10-operator-mutation-module"></span><h2>group10.operator.mutation module<a class="headerlink" href="#module-group10.operator.mutation" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="group10.operator.mutation.UniformMutation">
+<em class="property">class </em><code class="sig-prename descclassname">group10.operator.mutation.</code><code class="sig-name descname">UniformMutation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob_mut</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.mutation.UniformMutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#group10.operator.MutationOperator" title="group10.operator.MutationOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">group10.operator.MutationOperator</span></code></a></p>
+<p>A uniform mutation operator</p>
+<dl class="py method">
+<dt id="group10.operator.mutation.UniformMutation.apply">
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">genome</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.mutation.UniformMutation.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>It represents an operation to mutate a genome in a uniform way</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>genome (component.Genome): Genome to mutate</p>
+</dd>
+<dt>Returns:</dt><dd><p>Genome: New genome as result to apply mutation</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-group10.operator.replacement">
+<span id="group10-operator-replacement-module"></span><h2>group10.operator.replacement module<a class="headerlink" href="#module-group10.operator.replacement" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="group10.operator.replacement.SteadyStateReplacement">
+<em class="property">class </em><code class="sig-prename descclassname">group10.operator.replacement.</code><code class="sig-name descname">SteadyStateReplacement</code><a class="headerlink" href="#group10.operator.replacement.SteadyStateReplacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#group10.operator.ReplacementOperator" title="group10.operator.ReplacementOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">group10.operator.ReplacementOperator</span></code></a></p>
+<p>A steady-state replacement operator</p>
+<dl class="py method">
+<dt id="group10.operator.replacement.SteadyStateReplacement.apply">
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">population_current</span></em>, <em class="sig-param"><span class="n">population_offspring</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.replacement.SteadyStateReplacement.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>It represents an operation to generate a new population of genomes in a steady-state way</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>population_current (component.Population): The current population of genomes
+population_offspring (component.Population): The population with one genome as result to apply selection/crossover/mutation</p>
+</dd>
+<dt>Returns:</dt><dd><p>Population: New population as result to replace the worst genome of the current population</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-group10.operator.selection">
+<span id="group10-operator-selection-module"></span><h2>group10.operator.selection module<a class="headerlink" href="#module-group10.operator.selection" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="group10.operator.selection.TournamentSelection">
+<em class="property">class </em><code class="sig-prename descclassname">group10.operator.selection.</code><code class="sig-name descname">TournamentSelection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">k</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.selection.TournamentSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#group10.operator.SelectionOperator" title="group10.operator.SelectionOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">group10.operator.SelectionOperator</span></code></a></p>
+<p>A tournament selection operator</p>
+<dl class="py method">
+<dt id="group10.operator.selection.TournamentSelection.apply">
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">population</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.selection.TournamentSelection.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>It represents an operation to select a genome within the population in a tournament selection way</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>population (component.Population): A population of genomes</p>
+</dd>
+<dt>Returns:</dt><dd><p>Genome: Genome as result of the selection of the best genome with the best fitness within the population</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-group10.operator">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-group10.operator" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="group10.operator.CrossoverOperator">
+<em class="property">class </em><code class="sig-prename descclassname">group10.operator.</code><code class="sig-name descname">CrossoverOperator</code><a class="headerlink" href="#group10.operator.CrossoverOperator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Crossover Operator abstract class</p>
+<dl class="py method">
+<dt id="group10.operator.CrossoverOperator.apply">
+<em class="property">abstract </em><code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">genomes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.CrossoverOperator.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="group10.operator.MutationOperator">
+<em class="property">class </em><code class="sig-prename descclassname">group10.operator.</code><code class="sig-name descname">MutationOperator</code><a class="headerlink" href="#group10.operator.MutationOperator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Mutation Operator abstract class</p>
+<dl class="py method">
+<dt id="group10.operator.MutationOperator.apply">
+<em class="property">abstract </em><code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">genomes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.MutationOperator.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="group10.operator.ReplacementOperator">
+<em class="property">class </em><code class="sig-prename descclassname">group10.operator.</code><code class="sig-name descname">ReplacementOperator</code><a class="headerlink" href="#group10.operator.ReplacementOperator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Replacement Operator abstract class</p>
+<dl class="py method">
+<dt id="group10.operator.ReplacementOperator.apply">
+<em class="property">abstract </em><code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">population</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.ReplacementOperator.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="group10.operator.SelectionOperator">
+<em class="property">class </em><code class="sig-prename descclassname">group10.operator.</code><code class="sig-name descname">SelectionOperator</code><a class="headerlink" href="#group10.operator.SelectionOperator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Selection Operator abstract class</p>
+<dl class="py method">
+<dt id="group10.operator.SelectionOperator.apply">
+<em class="property">abstract </em><code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">population</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.operator.SelectionOperator.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Genetic Algorithm</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, grupo10.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/group10.operator.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

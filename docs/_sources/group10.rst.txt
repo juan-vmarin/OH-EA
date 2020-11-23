@@ -1,0 +1,37 @@
+group10 package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   group10.operator
+
+Submodules
+----------
+
+group10.EA module
+-----------------
+
+.. automodule:: group10.EA
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+group10.component module
+------------------------
+
+.. automodule:: group10.component
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: group10
+   :members:
+   :undoc-members:
+   :show-inheritance:
