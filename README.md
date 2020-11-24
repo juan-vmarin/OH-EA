@@ -1,8 +1,79 @@
- Example Package
- =====================================
+# Memoria
+
+## Autores
+### Grupo 10
+- Xiao Peng Ye
+- Zheng Yu Ye
+- Juan Diego Valencia Marin
+
+## Índice
+1. Introducción
+2. Algoritmo implementado
+3. Funcionamiento específico
+4. Pruebas realizadas
+5. Aplicaciones
+6. Empaquetado de la aplicación (cambiar nombre)
+7. Conclusiones
+8. Bibliografía
+
+## Introducción
+Los algoritmos genéticos son métodos de optimización heurística que se emplean para hallar un valor o valores que consiguen maximizar o minimizar una función. Y su funcionamiento esta inspirado en la [teoría evolutiva de la selección natural](https://es.wikipedia.org/wiki/Selecci%C3%B3n_natural#:~:text=La%20selecci%C3%B3n%20natural%20fue%20propuesta,los%20individuos%20de%20una%20poblaci%C3%B3n.). 
+
+Los algoritmos genéticos surgieron en los años 1970 gracias a [John Henry Hollan](https://en.wikipedia.org/wiki/John_Henry_Holland), (también es conocido como el padre del Algoritmo genético), siendo una de las ideas mas prometedoras en la inteligencia artificial.
+
+John Holland estaba consciente de la importancia de la selección natural, y a fines de los 60s desarrolló una técnica que permitió incorporarla en un programa de computadora. Su objetivo era lograr que las computadoras aprendieran por sí mismas. Aunque la técnica que inventó Holland se le llamó originalmente "planes reproductivos",  se hizo popular bajo el nombre "algoritmo genético" tras la publicación de su libro (Adaptation in Natural and Artificial Systems) en 1975.
+
+## Algoritmo implementado
+En nuestro caso, hemos implementado el **algoritmo genético (GA)** con una configuración específica, el *intercambio genético uniforme*, *mutación uniforme*, *selección competitiva (tournament)* y *reemplazo en estado estacionario (Steady-state)*, la cual se comentará más tarde. 
+
+El funcionamiento de este algoritmo es el siguiente:
+1. Crear una población inicial aleatoria con **N** individuos.
+2. Calcular el fitness de cada individuo de la población.
+3. Crear una nueva población aplicando los siguientes pasos:
+	1. Seleccionar dos individuos de la población ya creada en función del método de selección realizado.
+	2. Cruzar los dos individuos seleccionados para generar un nuevo individuo en función del intercambio genético realizado.
+	3. Realizar el método de mutación sobre el individuo.
+	4. Añadirlo en la nueva población.
+	5. Repetir todos estos pasos hasta obtener el mismo número de individuos que la antigua población. 
+(no aparece el diagrama en git)
+	```mermaid
+		graph LR
+		A(Selección) --> B(Cruzamiento)
+		B --> C(Mutación)
+		C --> D(Inserción)
+		D -- Si tenemos N individuos--> E(Fin)
+		D -- Si no tenemos N individos --> A
+	```
+4. Reemplazar la nueva población por la antigua.
+
+## Funcionamiento específico (revisar)
+
+### Intercambio genético uniforme (Uniform crossover)
+En esta etapa se consigue generar nuevos individuos a partir de los anteriores, sustituyendo los anteriores por los nuevos.
+
+El intercambio genético uniforme se realiza intercambiando un único individuo, con una determinada probabilidad, por uno de los individuos seleccionados previamente. 
+
+### Mutación uniforme (Uniform mutation)
+Este paso es importante para obtener diversidad y evitar que el algoritmo caiga en mínimos locales debido a que todos los individuos sean demasiado semejantes.
+Una vez obtenido el nuevo individuo, este se somete a un proceso de mutación el cual puede verse modificado con una determina probabilidad.
+
+La mutación uniforme se consigue sumando a la posición i un valor extraído de una distribución uniforme.
+
+### Selección competitiva (Tournament selection)
+En general la selección de los individuos se realiza favoreciendo a aquellos con mejor fitness, nuestro caso no es la excepción, debido a que se selecciona el mejor individuo con mejor fitness de una forma competitiva.
+
+Este tipo de selección, se llama competitiva porque se comprueba el fitness de dos individuos aleatorios un número determinado de veces hasta conseguir el individuo con mejor fitness.
+ 
+### Reemplazo (Steady-state replacement) (Ojo aqui)
+Esta etapa es la encargada de cambiar la población de individuos y creando así, una nueva generación de individuos. Además, evita la convergencia prematura y promociona a los individuos más aptos.
+
+El reemplazo estacionario sustituye el peor individuo de la población por el nuevo descendiente.
+
+### Fitness utilizado
 
 
 
+## Pruebas realizadas
 
 * **Function Sphere**
     - $f(\textbf{x}) = f(x_1, x_2, ..., x_n) = {\sum_{i=1}^{n} x_i^{2}}.$
@@ -188,4 +259,42 @@
     fitness: -0.9990715308450793
 
    ```
+
+
+
+## Aplicaciones de los algoritmos genéticos
+Este algoritmo se puede llevar a cabo en varias situaciones del mundo real, algunos ejemplos son los siguientes:
+- **Robótica.**
+	Se utiliza para crear robots de aprendizaje comportándose como humanos (realizando tareas menos automatizadas, más "humanas").
+	
+- **Diseño de ingeniería.**
+	Se basa en la simulación y modelado de ordenadores para que el proceso de diseño sea rápido y económico.  Busca una solución óptima y robusta.
+	
+- **Teoría de juegos.**
+La teoría evolutiva de los juegos considera los juegos que involucran a una población de tomadores de decisiones, donde la frecuencia con la que se toma una decisión particular puede cambiar con el tiempo en respuesta a las decisiones tomadas por todos los individuos de la población.
+
+
+## Empaquetado de la aplicación (cambiar nombre)
+Los pasos para "empaquetar" la "aplicación" son los siguientes:
+
+1. foo
+2. foo
+3. foo
+4. foo
+
+
+## Conclusiones
+lorem
+
+
+## Bibliografía
+Holland, John H. "Adaptation in Natural and Artificial Systems".
+
+https://es.wikipedia.org/wiki/Selecci%C3%B3n_natural#:~:text=La%20selecci%C3%B3n%20natural%20fue%20propuesta,los%20individuos%20de%20una%20poblaci%C3%B3n.
+
+https://www.cienciadedatos.net/documentos/py01_optimizacion_ga#Crear-poblaci%C3%B3n
+
+https://en.wikipedia.org/wiki/John_Henry_Holland
+
+https://www.tecnologias-informacion.com/algoritmosgeneticos.html#:~:text=En%20la%20actualidad%2C%20el%20algoritmo,humanas%20y%20no%20tan%20automatizables.
 
