@@ -282,7 +282,7 @@ print(bestGenome.solution, bestGenome.fitness)
 
 
 ## Conclusiones
-Este trabajo se ha enfocado en la solución de funciones de minimización, con unos métodos específicos y algunos mas óptimos que otros. Segun las soluciones de las pruebas que hemos conseguido durante la realización del trabajo, podemos concluir que normalmente acercamos a la optima minima con la mayor cantidad de muestras o intentaciones. Pero lo que si ha quedado claro es su funcionamiento y su gran utilidad en la optimización de funciones.  (cambiar)
+Este trabajo se ha enfocado en la solución de funciones de minimización, con unos métodos específicos y algunos mas óptimos que otros. Segun las soluciones de las pruebas que hemos conseguido durante la realización del trabajo, podemos concluir que cuando más muestras o intentaciones tomemos, más acerquemos a la optima minima. Pero lo que si ha quedado claro es su funcionamiento y su gran utilidad en la optimización de funciones.  (cambiar)
 
 
 ## Bibliografía
@@ -295,3 +295,5 @@ https://en.wikipedia.org/wiki/John_Henry_Holland
 https://www.tecnologias-informacion.com/algoritmosgeneticos.html#:~:text=En%20la%20actualidad%2C%20el%20algoritmo,humanas%20y%20no%20tan%20automatizables.
 
 https://www.cienciadedatos.net/documentos/py01_optimizacion_ga
+
+http://benchmarkfcns.xyz/
