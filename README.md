@@ -282,8 +282,11 @@ print(bestGenome.solution, bestGenome.fitness)
 
 
 ## Conclusiones
-Este trabajo se ha enfocado en la solución de funciones de minimización, con unos métodos específicos y algunos mas óptimos que otros. Segun las soluciones de las pruebas que hemos conseguido durante la realización del trabajo, podemos concluir que cuando más muestras o intentaciones tomemos, más acerquemos a la optima minima. Pero lo que si ha quedado claro es su funcionamiento y su gran utilidad en la optimización de funciones.  (cambiar)
+Este trabajo se ha enfocado en la solución de funciones de minimización, con unos métodos específicos y algunos mas óptimos que otros. Segun las soluciones de las pruebas que hemos conseguido durante la realización del trabajo, podemos concluir que cuando más muestras o intentaciones tomemos, más nos acercamos a la solución optima minima. Pero lo que si ha quedado claro es su funcionamiento y su gran utilidad en la optimización de funciones.  (cambiar)
 
+Pasando a un enfoque más personal sobre la práctica, consideramos que ha sido interesante y beneficiosa para nosotros, pues no conocíamos este tipo de algorítmo y mucho menos las aplicaciones y las ventajas que ofrece. 
+
+Esto ocurre también con la herramienta Anaconda, pues desconocíamos su gran cantidad de funcionalidades y las facilidades que entrega al progamador en Python. Y siguiendo por este camino, además hemos aprendido un nuevo lenguaje de programación, Python. Otra ventaja para nosotros, pues hemos salido de nuestra zona de confort con Java y hemos visto las diferenecias y ventajas que ofrece Python ante otros lenguajes. Lo que nos ayudará y seguramente nos resultará útil en nuestro futuro.
 
 ## Bibliografía
 Holland, John H. "Adaptation in Natural and Artificial Systems".
