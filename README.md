@@ -273,7 +273,7 @@ print(bestGenome.solution, bestGenome.fitness)
 
 
 ## Conclusiones
-Este trabajo se ha enfocado en la solución de funciones de minimización, con unos métodos específicos y algunos óptimos que otros. Según las soluciones de las pruebas que hemos conseguido durante la realización del trabajo, podemos concluir que cuando más muestras o ejecuciones realicemos, más nos acercamos a la solución óptima mínima. Pero lo que si ha quedado claro es su funcionamiento y su gran utilidad en la optimización de funciones.  (cambiar)
+Este trabajo se ha enfocado en la solución de funciones de minimización, con unos métodos específicos y algunos óptimos que otros. Según las soluciones de las pruebas que hemos conseguido durante la realización del trabajo, podemos concluir que cuando más muestras o ejecuciones realicemos, más nos acercamos a la solución óptima mínima. Pero lo que si ha quedado claro es su funcionamiento y su gran utilidad en la optimización de funciones. 
 
 Pasando a un enfoque más personal sobre la práctica, consideramos que ha sido interesante y beneficiosa para nosotros, pues no conocíamos este tipo de algoritmo y mucho menos las aplicaciones y las ventajas que ofrece. 
 
