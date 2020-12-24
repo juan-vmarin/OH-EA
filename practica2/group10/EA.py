@@ -1,8 +1,8 @@
-from practica1.group10 import UniformCrossover
-from practica1.group10 import TournamentSelection
-from practica1.group10 import SteadyStateReplacement
-from practica1.group10 import UniformMutation
-from practica1.group10.component import Population
+from practica2.group10 import UniformCrossover
+from practica2.group10 import TournamentSelection
+from practica2.group10 import SteadyStateReplacement
+from practica2.group10 import UniformMutation
+from practica2.group10.component import Population
 import numpy as np
 import random
 
@@ -33,7 +33,9 @@ class EA(object):
         Args:
             iteration (int): Number of generation
         """
+        i = random.randint(0,self._population.length)
         for i in range(iteration):
+
             genome_a = self._selection.apply(self._population)
             genome_b = self._selection.apply(self._population)
 
