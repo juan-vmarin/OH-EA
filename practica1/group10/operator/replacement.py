@@ -1,4 +1,4 @@
-from group10.operator import ReplacementOperator
+from practica1.group10 import ReplacementOperator
 
 
 class SteadyStateReplacement(ReplacementOperator):

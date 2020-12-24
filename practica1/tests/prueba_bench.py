@@ -1,5 +1,5 @@
-from group10.EA import EA
-from benchmarks.functions import sphere, ackley, rosenbrock, rastrigin, griewank, schwefel_2_21, schwefel_2_22, schwefel_1_2, extended_f_10,bohachevsky,schaffer
+from practica1.group10 import EA
+from benchmarks.functions import ackley, rosenbrock
 
 # spherebounds = [(-5.12, 5.12)] * 10
 # sphereEA = EA(sphere, spherebounds, 50)
