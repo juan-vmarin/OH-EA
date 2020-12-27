@@ -19,13 +19,6 @@ class MutationOperator(ABC):
         pass
 
 
-class SelectionOperator(ABC):
-    """Selection Operator abstract class
-    """
-
-    @abstractmethod
-    def apply(self, population):
-        pass
 
 
 class ReplacementOperator(ABC):

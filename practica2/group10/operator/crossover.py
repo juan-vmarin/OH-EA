@@ -12,25 +12,25 @@ class BinomialCrossover(CrossoverOperator):
         """It represents an operation to cross 2 genomes in a binomial way
 
         Args:
-            genomes (component.Genome): A list of two genomes
-            cr:
+            genomes (component.Genome): A list of two genomes, genomes[0]: donor vector, genomes[1]:target vector
+            cr:possibility to crossover to generate
 
         Returns:
             Genome: Genome as a result of crossover
         """
         v = genomes[0]
         x = genomes[1]
-        genome_aux = numpy.zeros(len(x))
+        # genome_aux = numpy.zeros(len(x))
 
         for i in range(len(x)):
             rand = random.random()
             rand_int = randint(1, 2)
             if rand <= cr or i == rand_int:
-                genome_aux[i] = v[i]
+                pass
             elif rand > cr and i != rand_int:
-                genome_aux[i] = x[i]
+                v[i] = x[i]
 
-        return genome_aux
+        return v
 
 
 class Test:

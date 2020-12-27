@@ -1,9 +1,6 @@
-from practica2.group10.operator import MutationOperator
-from practica2.group10.operator.selection import UniformSelection
+from group10.operator import MutationOperator
 import random
-import numpy as np
-from copy import copy
-
+import numpy
 
 # de/rand/1
 class DeRandOneMutation(MutationOperator):
@@ -32,9 +29,10 @@ class DeRandOneMutation(MutationOperator):
         """
         while 1:
             selected = random.choice(list(population))
-            if selected != genome_target:
+            # print(selected, 'selected')
+            if genome_target != selected:
                 break
-        print(selected, 'selected')
+        return selected
 
     def apply(self, population, genome_target):
         """It represents an operation to mutate a genome with function v= x0 + F(x1+x2)
@@ -51,7 +49,8 @@ class DeRandOneMutation(MutationOperator):
         genome_x0 = self._selection(population, genome_target)
         genome_x1 = self._selection(population, genome_target)
         genome_x2 = self._selection(population, genome_target)
-        genome_x0 = genome_x0 + self._f * (genome_x1 + genome_x2)
+        genome_x0 = genome_x0.solution + self._f * (genome_x1.solution + genome_x2.solution)
+        # genome_x0 = genome_x0+ self._f * (genome_x1 + genome_x2)
         return genome_x0
 
         # genome_copy = copy(genome)

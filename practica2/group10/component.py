@@ -46,6 +46,11 @@ class Genome(object):
         """
         return self._bounds
 
+    @solution.setter
+    def solution(self, value):
+        self._solution = value
+        self._fitness = self._calc_fitness()
+
     def _calc_fitness(self):
         """Calculate the fitness
 
