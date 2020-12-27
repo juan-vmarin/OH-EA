@@ -1,4 +1,4 @@
-from practica1.group10 import SelectionOperator
+from group10.operator import SelectionOperator
 import random
 
 

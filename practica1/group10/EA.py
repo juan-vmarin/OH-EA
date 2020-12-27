@@ -1,8 +1,8 @@
-from practica1.group10 import UniformCrossover
-from practica1.group10 import TournamentSelection
-from practica1.group10 import SteadyStateReplacement
-from practica1.group10 import UniformMutation
-from practica1.group10.component import Population
+from group10.operator.crossover import UniformCrossover
+from group10.operator.selection import TournamentSelection
+from group10.operator.replacement import SteadyStateReplacement
+from group10.operator.mutation import UniformMutation
+from group10.component import Population
 import numpy as np
 import random
 

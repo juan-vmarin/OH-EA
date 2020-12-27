@@ -1,8 +1,8 @@
-from practica2.group10 import UniformCrossover
-from practica2.group10 import TournamentSelection
-from practica2.group10 import SteadyStateReplacement
-from practica2.group10 import UniformMutation
-from practica2.group10.component import Population
+from group10.operator import UniformCrossover
+from group10.operator import UniformSelection
+from group10.operator import SteadyStateReplacement
+from group10.operator import UniformMutation
+from group10.component import Population
 import numpy as np
 import random
 
@@ -20,7 +20,7 @@ class EA(object):
             p_size (int): size of the population
         """
         self._crossover = UniformCrossover(0.9)
-        self._mutation = UniformMutation(0.2)
+        self._mutation = UniformMutation(1)
         self._selection = TournamentSelection(4)
         self._replacement = SteadyStateReplacement()
         self._min_function = min_function
@@ -33,7 +33,7 @@ class EA(object):
         Args:
             iteration (int): Number of generation
         """
-        i = random.randint(0,self._population.length)
+        # i = random.randint(0,self._population.length)
         for i in range(iteration):
 
             genome_a = self._selection.apply(self._population)

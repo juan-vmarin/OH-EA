@@ -1,4 +1,4 @@
-from practica1.group10 import CrossoverOperator
+from group10.operator import CrossoverOperator
 from random import random
 from copy import copy
 

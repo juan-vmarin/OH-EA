@@ -1,4 +1,4 @@
-from practica1.group10 import MutationOperator
+from practica1.group10.operator import MutationOperator
 import random
 from copy import copy
 
