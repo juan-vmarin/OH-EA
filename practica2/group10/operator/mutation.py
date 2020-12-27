@@ -1,6 +1,7 @@
 from group10.operator import MutationOperator
 import random
 import numpy
+from copy import copy
 
 # de/rand/1
 class DeRandOneMutation(MutationOperator):
@@ -16,7 +17,7 @@ class DeRandOneMutation(MutationOperator):
         self.k = 1
         self._f = f
 
-    def _selection(self, population, genome_target):
+    def _selection(self, population, genomes):
         """It represents an operation to select a genome within the population in a uniform selection way
 
         Args:
@@ -30,12 +31,12 @@ class DeRandOneMutation(MutationOperator):
         while 1:
             selected = random.choice(list(population))
             # print(selected, 'selected')
-            if genome_target != selected:
+            if selected not in genomes:
                 break
         return selected
 
     def apply(self, population, genome_target):
-        """It represents an operation to mutate a genome with function v= x0 + F(x1+x2)
+        """It represents an operation to mutate a genome with function v= x0 + F(x1-x2)
         and include an operation to select a genome within the population in a uniform selection way
 
 
@@ -46,12 +47,17 @@ class DeRandOneMutation(MutationOperator):
         Returns:
             Genome: New genome as result to apply mutation
         """
-        genome_x0 = self._selection(population, genome_target)
-        genome_x1 = self._selection(population, genome_target)
-        genome_x2 = self._selection(population, genome_target)
-        genome_x0 = genome_x0.solution + self._f * (genome_x1.solution + genome_x2.solution)
+
+        genomes =[genome_target]
+        genome_x0 = self._selection(population, genomes)
+        genome_res = copy(genome_x0)
+        genomes.append(genome_x0)
+        genome_x1 = self._selection(population, genomes)
+        genomes.append(genome_x1)
+        genome_x2 = self._selection(population, genomes)
+        genome_res.solution = genome_x0.solution+ self._f * (genome_x1.solution - genome_x2.solution)
         # genome_x0 = genome_x0+ self._f * (genome_x1 + genome_x2)
-        return genome_x0
+        return genome_res
 
         # genome_copy = copy(genome)
         # if random.random() < self.prob_mut:

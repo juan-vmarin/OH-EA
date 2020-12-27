@@ -8,7 +8,7 @@ class BinomialCrossover(CrossoverOperator):
     '''A binomial crossover operator
     '''
 
-    def apply(self, genomes, cr=0.1):
+    def apply(self, genomes, cr=0.5):
         """It represents an operation to cross 2 genomes in a binomial way
 
         Args:
@@ -26,8 +26,10 @@ class BinomialCrossover(CrossoverOperator):
             rand = random.random()
             rand_int = randint(1, 2)
             if rand <= cr or i == rand_int:
+            # if rand <= cr:
                 pass
-            elif rand > cr and i != rand_int:
+            # elif rand > cr and i != rand_int:
+            else:
                 v[i] = x[i]
 
         return v

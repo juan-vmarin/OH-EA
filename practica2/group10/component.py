@@ -222,11 +222,11 @@ class Population(object):
         return next(self._genomes)
 
     def __len__(self):
-        return len(self._genomes)
+        return self._size
 
     @property
-    def max_size(self):
-        return self._size
+    def size(self):
+        return len(self._genomes)
 
     def __str__(self):
         return '[' + '\n'.join([str(i) for i in self._genomes]) + ']'

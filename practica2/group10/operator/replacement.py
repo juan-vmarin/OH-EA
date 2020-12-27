@@ -5,7 +5,7 @@ class ElitistReplacement(ReplacementOperator):
     """A elitist replacement operator
     """
 
-    def apply(self, population_current, population_offspring):
+    def apply(self, population_current, population_offspring, target):
         """It represents an operation to generate a new population of genomes in a elitist way
 
         Args:
@@ -16,8 +16,8 @@ class ElitistReplacement(ReplacementOperator):
         Returns:
             Population: New population as a result of the elitist replacement
         """
-
-        population_current[population_current.worst_index] = population_offspring[0]
+        if population_current[target].fitness > population_offspring[0].fitness:
+            population_current[target] = population_offspring[0]
         return population_current
 
 
