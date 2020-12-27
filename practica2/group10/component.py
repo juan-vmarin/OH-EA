@@ -48,7 +48,7 @@ class Genome(object):
 
     @solution.setter
     def solution(self, value):
-        self._solution = value
+        self._solution = np.clip(value, self._bounds[:, 0], self._bounds[:, 1])
         self._fitness = self._calc_fitness()
 
     def _calc_fitness(self):

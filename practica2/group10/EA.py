@@ -4,7 +4,7 @@ from group10.operator.mutation import DeRandOneMutation
 from group10.component import Population
 import numpy as np
 import random
-from benchmarks.functions import ackley, schwefel_2_21
+from benchmarks.functions import ackley, schwefel_2_21, sphere
 
 
 class EA(object):
@@ -35,19 +35,19 @@ class EA(object):
 
         # i = random.randint(0,self._population.length)
         for i in range(iteration):
-            print('population+++++++++++++++++++++', self._population)
+            # print('population+++++++++++++++++++++', self._population)
             for target in range(self._population.size):
             # target = random.randint(0 , self._population.size-1)
                 genome_target = self._population[target]
                 # print('target', genome_target)
-                print('target-fitness', genome_target.fitness)
+                # print('target-fitness', genome_target.fitness)
                 genome_donor = self._mutation.apply(self._population, genome_target)
                 # print('donor', genome_donor)
-                print('donor-fitness', genome_donor.fitness)
+                # print('donor-fitness', genome_donor.fitness)
                 genomes = [genome_donor, genome_target]
                 genome_trial = self._crossover.apply(genomes)
                 # print('trial', genome_trial)
-                print('trial-fitness', genome_trial.fitness)
+                # print('trial-fitness', genome_trial.fitness)
                 offspring_population = Population(self._min_function, self._bounds, 1)
                 offspring_population.append(genome_trial)
                 # print('population', offspring_population)
@@ -65,12 +65,14 @@ class EA(object):
 
 
 if __name__ == '__main__':
-    schwefel_2_21bounds = [(-100, 100)] * 5
-    schwefel_2_21EA = EA(schwefel_2_21, schwefel_2_21bounds, 5)
-    schwefel_2_21EA.run(1)
-    bestGenome = schwefel_2_21EA.best()
-    print("function schwefel_2_21")
+    spherebounds = [(-5.12, 5.12)] * 5
+    sphereEA = EA(sphere, spherebounds, 5)
+    sphereEA.run(10000)
+    bestGenome = sphereEA.best()
+    print("function sphere")
     print(bestGenome, "\nfitness:", bestGenome.fitness)
+
+
 
     # population = Population(ackley, [(-32, 32)] * 10, 50, random=True)
     # for genome_target in population:

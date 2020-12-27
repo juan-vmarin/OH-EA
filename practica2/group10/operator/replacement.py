@@ -16,7 +16,7 @@ class ElitistReplacement(ReplacementOperator):
         Returns:
             Population: New population as a result of the elitist replacement
         """
-        if population_current[target].fitness > population_offspring[0].fitness:
+        if population_current[target] < population_offspring[0]:
             population_current[target] = population_offspring[0]
         return population_current
 
