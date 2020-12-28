@@ -12,6 +12,7 @@ class ElitistReplacement(ReplacementOperator):
             population_current (component.Population): The current population of genomes
             population_offspring (component.Population): The population with one genome as result to apply
             selection/crossover/mutation
+            target: genome target
 
         Returns:
             Population: New population as a result of the elitist replacement
