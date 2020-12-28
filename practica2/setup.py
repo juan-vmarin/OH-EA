@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="UTF-8") as fh:
 
 setuptools.setup(
     name="group10",
-    version="1.0.0",
+    version="2.0.0",
     author="Group10",
     author_email="z.ye@alumnos.upm.es",
     description="Heuristic optimization 2nd practical work, by Group 10.",

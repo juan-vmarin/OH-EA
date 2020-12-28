@@ -1,17 +1,17 @@
-from group10 import EA
-from benchmarks.functions import ackley, rosenbrock
+from group10.EA import EA
+from benchmarks.functions import ackley, rosenbrock, sphere
 
-# spherebounds = [(-5.12, 5.12)] * 10
-# sphereEA = EA(sphere, spherebounds, 50)
-# sphereEA.run(10000)
-# bestGenome = sphereEA.best()
-# print("function sphere")
-# print(bestGenome, "\nfitness:", bestGenome.fitness)
-#
-#
+spherebounds = [(-5.12, 5.12)] * 10
+sphereEA = EA(sphere, spherebounds, 50)
+sphereEA.run(10000)
+bestGenome = sphereEA.best()
+print("function sphere")
+print(bestGenome, "\nfitness:", bestGenome.fitness)
+
+
 ackleybounds = [(-32, 32)] * 10
 ackleyEA = EA(ackley, ackleybounds, 50)
-ackleyEA.run(100000)
+ackleyEA.run(1000)
 bestGenome = ackleyEA.best()
 print("function ackley")
 print(bestGenome, "\nfitness:", bestGenome.fitness)

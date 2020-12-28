@@ -1,9 +1,8 @@
 from group10.operator import MutationOperator
 import random
-import numpy
 from copy import copy
 
-# de/rand/1
+
 class DeRandOneMutation(MutationOperator):
     """A de/rand/1 mutation operator and A uniform selection operator included
         """
@@ -17,12 +16,12 @@ class DeRandOneMutation(MutationOperator):
         self.k = 1
         self._f = f
 
-    def _selection(self, population, genomes):
+    def selection(self, population, genomes):
         """It represents an operation to select a genome within the population in a uniform selection way
 
         Args:
             population (component.Population): A population of genomes
-            genome_target (component.Genome): Genome target x_i
+            genomes (component.Genome): Genome target x_i
 
         Returns:
             Genome: Genome as result of the selection of the random genome within the population which is not the target
@@ -30,7 +29,6 @@ class DeRandOneMutation(MutationOperator):
         """
         while 1:
             selected = random.choice(list(population))
-            # print(selected, 'selected')
             if selected not in genomes:
                 break
         return selected
@@ -48,26 +46,12 @@ class DeRandOneMutation(MutationOperator):
             Genome: New genome as result to apply mutation
         """
 
-        genomes =[genome_target]
-        genome_x0 = self._selection(population, genomes)
+        genomes = [genome_target]
+        genome_x0 = self.selection(population, genomes)
         genome_res = copy(genome_x0)
         genomes.append(genome_x0)
-        genome_x1 = self._selection(population, genomes)
+        genome_x1 = self.selection(population, genomes)
         genomes.append(genome_x1)
-        genome_x2 = self._selection(population, genomes)
-        genome_res.solution = genome_x0.solution+ self._f * (genome_x1.solution - genome_x2.solution)
-        # genome_x0 = genome_x0+ self._f * (genome_x1 + genome_x2)
+        genome_x2 = self.selection(population, genomes)
+        genome_res.solution = genome_x0.solution + self._f * (genome_x1.solution - genome_x2.solution)
         return genome_res
-
-        # genome_copy = copy(genome)
-        # if random.random() < self.prob_mut:
-        #     index = random.randrange(len(genome))
-        #     bound = genome_copy.bounds[index]
-        #     genome_copy[index] = random.uniform(bound[0], bound[1])
-        #
-        # return genome_copy
-    # if __name__ == "__main__":
-
-# class test():
-#     if __name__ == "__main__":
-#         m=DeRandOneMutation()

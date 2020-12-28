@@ -3,9 +3,6 @@ from group10.operator.replacement import ElitistReplacement
 from group10.operator.mutation import DeRandOneMutation
 from group10.component import Population
 import numpy as np
-import random
-from benchmarks.functions import ackley, schwefel_2_21, sphere
-
 
 class EA(object):
     """Genetic algorithm to obtain the solution that allows us to obtain the minimum value of a function
@@ -33,27 +30,15 @@ class EA(object):
             iteration (int): Number of generation
         """
 
-        # i = random.randint(0,self._population.length)
         for i in range(iteration):
-            # print('population+++++++++++++++++++++', self._population)
             for target in range(self._population.size):
-            # target = random.randint(0 , self._population.size-1)
                 genome_target = self._population[target]
-                # print('target', genome_target)
-                # print('target-fitness', genome_target.fitness)
                 genome_donor = self._mutation.apply(self._population, genome_target)
-                # print('donor', genome_donor)
-                # print('donor-fitness', genome_donor.fitness)
                 genomes = [genome_donor, genome_target]
                 genome_trial = self._crossover.apply(genomes)
-                # print('trial', genome_trial)
-                # print('trial-fitness', genome_trial.fitness)
                 offspring_population = Population(self._min_function, self._bounds, 1)
                 offspring_population.append(genome_trial)
-                # print('population', offspring_population)
-                # print('population', self._population)
-                self._population = self._replacement.apply(self._population, offspring_population,target)
-                # print('population------------------------', self._population)
+                self._population = self._replacement.apply(self._population, offspring_population, target)
 
     def best(self):
         """Get the best genome of the population
@@ -63,17 +48,3 @@ class EA(object):
         """
         return self._population[self._population.best_index]
 
-
-if __name__ == '__main__':
-    spherebounds = [(-5.12, 5.12)] * 5
-    sphereEA = EA(sphere, spherebounds, 5)
-    sphereEA.run(10000)
-    bestGenome = sphereEA.best()
-    print("function sphere")
-    print(bestGenome, "\nfitness:", bestGenome.fitness)
-
-
-
-    # population = Population(ackley, [(-32, 32)] * 10, 50, random=True)
-    # for genome_target in population:
-    #     print(genome_target.solution+genome_target.solution)

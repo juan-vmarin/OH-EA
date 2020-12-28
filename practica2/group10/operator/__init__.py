@@ -19,8 +19,6 @@ class MutationOperator(ABC):
         pass
 
 
-
-
 class ReplacementOperator(ABC):
     """Replacement Operator abstract class
     """
