@@ -11,9 +11,7 @@ class DeRandOneMutation(MutationOperator):
         """de/rand/1 mutation constructor and Uniform selection constructor
         Args:
             f (float): mutation factor F
-            k (float): number of genomes to be randomly selected
         """
-        self.k = 1
         self._f = f
 
     def selection(self, population, genomes):
