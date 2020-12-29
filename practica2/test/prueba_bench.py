@@ -1,6 +1,8 @@
 from group10.EA import EA
 from benchmarks.functions import ackley, rosenbrock, sphere
 
+
+
 spherebounds = [(-5.12, 5.12)] * 10
 sphereEA = EA(sphere, spherebounds, 50)
 sphereEA.run(10000)
