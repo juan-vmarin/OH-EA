@@ -8,11 +8,11 @@ class BinomialCrossover(CrossoverOperator):
     """A binomial crossover operator
     """
 
-    def __init__(self):
+    def __init__(self,cr):
         """
             cr:possibility to crossover to generate
         """
-        self.cr = 0.5
+        self.cr = cr
 
     def apply(self, genomes):
 

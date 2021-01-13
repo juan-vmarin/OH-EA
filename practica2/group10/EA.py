@@ -17,7 +17,7 @@ class EA(object):
             bounds ([(float, float),] or numpy.array): limits to get solution
             p_size (int): size of the population
         """
-        self._crossover = BinomialCrossover()
+        self._crossover = BinomialCrossover(0.5)
         self._mutation = DeRandOneMutation(0.8)
         self._replacement = ElitistReplacement()
         self._min_function = min_function
