@@ -4,6 +4,7 @@ from group10.operator.mutation import DeRandOneMutation
 from group10.component import Population
 import numpy as np
 
+
 class EA(object):
     """Genetic algorithm to obtain the solution that allows us to obtain the minimum value of a function
     """
@@ -47,4 +48,3 @@ class EA(object):
                 (component.Genome): the best genome
         """
         return self._population[self._population.best_index]
-

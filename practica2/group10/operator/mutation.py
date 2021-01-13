@@ -4,7 +4,7 @@ from copy import copy
 
 
 class DeRandOneMutation(MutationOperator):
-    """A de/rand/1 mutation operator and A uniform selection operator included
+    """A de/rand/1 mutation operator and a uniform selection operator included
         """
 
     def __init__(self, f):
@@ -14,7 +14,8 @@ class DeRandOneMutation(MutationOperator):
         """
         self._f = f
 
-    def selection(self, population, genomes):
+    @staticmethod
+    def selection(population, genomes):
         """It represents an operation to select a genome within the population in a uniform selection way
 
         Args:
