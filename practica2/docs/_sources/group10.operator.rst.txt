@@ -1,0 +1,37 @@
+group10.operator package
+========================
+
+Submodules
+----------
+
+group10.operator.crossover module
+---------------------------------
+
+.. automodule:: group10.operator.crossover
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+group10.operator.mutation module
+--------------------------------
+
+.. automodule:: group10.operator.mutation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+group10.operator.replacement module
+-----------------------------------
+
+.. automodule:: group10.operator.replacement
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: group10.operator
+   :members:
+   :undoc-members:
+   :show-inheritance:

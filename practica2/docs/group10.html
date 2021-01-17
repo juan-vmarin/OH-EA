@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>group10 package &#8212; Differential Evolution 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="group10-package">
+<h1>group10 package<a class="headerlink" href="#group10-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="group10.operator.html">group10.operator package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="group10.operator.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group10.operator.html#module-group10.operator.crossover">group10.operator.crossover module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group10.operator.html#module-group10.operator.mutation">group10.operator.mutation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group10.operator.html#module-group10.operator.replacement">group10.operator.replacement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group10.operator.html#module-group10.operator">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-group10.EA">
+<span id="group10-ea-module"></span><h2>group10.EA module<a class="headerlink" href="#module-group10.EA" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="group10.EA.EA">
+<em class="property">class </em><code class="sig-prename descclassname">group10.EA.</code><code class="sig-name descname">EA</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">min_function</span></em>, <em class="sig-param"><span class="n">bounds</span></em>, <em class="sig-param"><span class="n">p_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.EA.EA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Differential Evolution algorithm to obtain the solution that allows us to obtain the minimum value of a function</p>
+<dl class="py method">
+<dt id="group10.EA.EA.best">
+<code class="sig-name descname">best</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#group10.EA.EA.best" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the best genome of the population</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>(component.Genome): the best genome</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="group10.EA.EA.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iteration</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.EA.EA.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve the min_function with iteration times</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>iteration (int): Number of generation</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-group10.component">
+<span id="group10-component-module"></span><h2>group10.component module<a class="headerlink" href="#module-group10.component" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="group10.component.Genome">
+<em class="property">class </em><code class="sig-prename descclassname">group10.component.</code><code class="sig-name descname">Genome</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">solution</span></em>, <em class="sig-param"><span class="n">min_function</span></em>, <em class="sig-param"><span class="n">bounds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.component.Genome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to represent a genome</p>
+<dl class="py method">
+<dt id="group10.component.Genome.bounds">
+<em class="property">property </em><code class="sig-name descname">bounds</code><a class="headerlink" href="#group10.component.Genome.bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the limits of the solution</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>[(float, float),]: Bounds of solution</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="group10.component.Genome.fitness">
+<em class="property">property </em><code class="sig-name descname">fitness</code><a class="headerlink" href="#group10.component.Genome.fitness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fitness value of how good is the genome as solution of the problem</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int: Quantification of how good the solution is</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="group10.component.Genome.solution">
+<em class="property">property </em><code class="sig-name descname">solution</code><a class="headerlink" href="#group10.component.Genome.solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>solution value</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>numpy.array: solution</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="group10.component.Population">
+<em class="property">class </em><code class="sig-prename descclassname">group10.component.</code><code class="sig-name descname">Population</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">min_function</span></em>, <em class="sig-param"><span class="n">bounds</span></em>, <em class="sig-param"><span class="n">p_size</span></em>, <em class="sig-param"><span class="n">random</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.component.Population" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to represent a population of genome</p>
+<dl class="py method">
+<dt id="group10.component.Population.append">
+<code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">genome</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.component.Population.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new genome at the end of the list</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>genome (component.Genome): New genome</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="group10.component.Population.best_index">
+<em class="property">property </em><code class="sig-name descname">best_index</code><a class="headerlink" href="#group10.component.Population.best_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the best genome index</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Int: Index of best genome</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="group10.component.Population.size">
+<em class="property">property </em><code class="sig-name descname">size</code><a class="headerlink" href="#group10.component.Population.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="group10.component.Population.sort">
+<code class="sig-name descname">sort</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descend</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#group10.component.Population.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort the genomes depending on fitness</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>descend (bool, optional): Descend or ascend sort</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="group10.component.Population.worst_index">
+<em class="property">property </em><code class="sig-name descname">worst_index</code><a class="headerlink" href="#group10.component.Population.worst_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a worst genome index</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int: Index of the worst genome</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-group10">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-group10" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Differential Evolution</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, grupo10.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/group10.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -6,7 +6,7 @@ import numpy as np
 
 
 class EA(object):
-    """Genetic algorithm to obtain the solution that allows us to obtain the minimum value of a function
+    """Differential Evolution algorithm to obtain the solution that allows us to obtain the minimum value of a function
     """
 
     def __init__(self, min_function, bounds, p_size):
