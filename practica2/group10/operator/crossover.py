@@ -8,16 +8,16 @@ class BinomialCrossover(CrossoverOperator):
     """A binomial crossover operator
     """
 
-    def __init__(self,cr):
+    def __init__(self, cr):
         """
             cr:possibility to crossover to generate
         """
         self.cr = cr
 
-    def apply(self, genomes):
+    def apply(self, genome_v, genome_x):
 
-        v = copy(genomes[0])
-        x = copy(genomes[1])
+        v = copy(genome_v)
+        x = copy(genome_x)
         for i in range(len(x)):
             rand = random.random()
             rand_int = randint(1, 2)

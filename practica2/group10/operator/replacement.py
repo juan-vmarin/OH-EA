@@ -20,5 +20,3 @@ class ElitistReplacement(ReplacementOperator):
         if population_current[target] < population_offspring[0]:
             population_current[target] = population_offspring[0]
         return population_current
-
-

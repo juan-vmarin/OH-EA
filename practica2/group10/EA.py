@@ -35,8 +35,7 @@ class EA(object):
             for target in range(self._population.size):
                 genome_target = self._population[target]
                 genome_donor = self._mutation.apply(self._population, genome_target)
-                genomes = [genome_donor, genome_target]
-                genome_trial = self._crossover.apply(genomes)
+                genome_trial = self._crossover.apply(genome_donor, genome_target)
                 offspring_population = Population(self._min_function, self._bounds, 1)
                 offspring_population.append(genome_trial)
                 self._population = self._replacement.apply(self._population, offspring_population, target)
